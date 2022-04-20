@@ -1,19 +1,32 @@
-import { useState, useEffect } from "react";
+// import { useState } from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
+import Home from "./pages/Home";
+import LogIn from "./components/LogIn";
+import SignUp from "./components/SignUp";
 
-function App() {
-  const [count, setCount] = useState(0);
+// import Header from "./components/Header";
 
-  useEffect(() => {
-    fetch("/hello")
-      .then((r) => r.json())
-      .then((data) => setCount(data.count));
-  }, []);
+
+
+export default function App() {
+
 
   return (
-    <div className="App bg-blue-100">
-      <h1>Page Count: {count}</h1>
-    </div>
-  );
+
+    <Router>
+        <Routes>
+            <Route path='/' element={<Home />}>
+              <Route path="signup" element={<SignUp />} />
+              <Route path="login" element={<LogIn />} />
+            </Route>
+        </Routes>
+    </Router>
+  )
 }
 
-export default App;
+/* Routes
+baseurl/ (home)
+./signup
+./login
+./subBludits
+*/

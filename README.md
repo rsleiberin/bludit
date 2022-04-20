@@ -22,3 +22,9 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+
+sudo apt install libpq-dev
+
+Run react:
+npm install --prefix client
+npm start --prefix-client
