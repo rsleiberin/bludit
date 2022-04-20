@@ -1,5 +1,4 @@
 class UsersController < ApplicationController
-    rescue_from ActiveRecord::RecordInvalid, with: :render_unprocessable_entity
 
     #Session authentication on page load
     def show
