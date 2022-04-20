@@ -3,7 +3,7 @@ class User < ApplicationRecord
     has_many :categories, dependent: :destroy
     has_many :posts, dependent: :destroy
     has_many :comments, dependent: :destroy
-    validation :username, length: {minimum: 3}
-    validation :password, confirmation: {case_sensitive: true}, length: {minimum: 8}
-
+    validates :username, length: {minimum: 3}, uniqueness: true
+    validates :password, confirmation: true, length: {minimum: 8}
+    validates :password_confirmation, presence: true
 end
