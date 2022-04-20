@@ -1,6 +1,7 @@
 class CategoriesController < ApplicationController
     def create
-        Category.create!(category_params)
+        category = Category.create!(category_params)
+        render json: category, status: :created
     end
     def index
         render json: Category.all, status: :ok
@@ -15,6 +16,9 @@ class CategoriesController < ApplicationController
         head :no_content
     end
     def update
+        category = finder
+        category.update(category_params)
+        render json: category, status: :ok
     end
     private
     def category_params
@@ -22,4 +26,5 @@ class CategoriesController < ApplicationController
     end
     def finder
         category = Category.find(params[:id])
+    end
 end
