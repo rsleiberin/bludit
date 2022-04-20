@@ -2,7 +2,7 @@ import { useState } from "react"
 import { useNavigate } from "react-router-dom"
 
 export default function LogIn() {
-    const [uesrname, setUesrname] = useState('')
+    const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
     const [confirmPassword, setConfirmPassword] = useState('')
 
@@ -21,8 +21,8 @@ export default function LogIn() {
                 <p className="text-xs text-gray-500">By continuing, you agree to our User Agreement and Privacy Policy.</p>
             </div>
             <div className=" mt-11 ">
-                <input className="m-2 mt-4 rounded bg-gray-100 drop-shadow" type="text" placeholder=" Email" />
-                <input className="m-2 mt-4 rounded bg-gray-100 drop-shadow" type="text" placeholder=" Password" />
+                <input className="m-2 mt-4 rounded bg-gray-100 drop-shadow" type="text" value={username} placeholder=" Username" />
+                <input className="m-2 mt-4 rounded bg-gray-100 drop-shadow" type="text" value={password} placeholder=" Password" />
                 <button className="rounded-xl mt-4 m-1 bg-blue-700 text-white p-1 text-lg w-48">Continue</button>
             </div>
         </div>

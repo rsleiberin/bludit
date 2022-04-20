@@ -4,7 +4,7 @@ export default function PostFilters() {
     const [activeFilter, setActiveFilter] = useState()
 
     const onClickHandler = (e) => {
-        console.log(e.target.textContent)
+        console.log(activeFilter)
         setActiveFilter(e.target.textContent)
     }
 
