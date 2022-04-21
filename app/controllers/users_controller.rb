@@ -21,9 +21,4 @@ class UsersController < ApplicationController
     end
     #Error Handling
     #--------------
-
-    # users#create validation error
-    def render_unprocessable_entity(invalid)
-        render json: {error: invalid.record.errors.full_messages}, status: :unprocessable_entity
-    end
 end
