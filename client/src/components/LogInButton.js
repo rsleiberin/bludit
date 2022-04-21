@@ -6,7 +6,7 @@ export default function LogInButton() {
     navigate('/login')
   }
   return (
-      <div className='flex float-right text-blue-700 bg-white rounded outline outline-1 p-1 h-6 align-baseline'>
+      <div className='float-right text-blue-800 bg-white rounded outline outline-2 p-1'>
     <button onClick={navigateLogin} className="flex">Log In</button>
       </div>
   )

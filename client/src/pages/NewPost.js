@@ -1,23 +1,28 @@
-
+import { useState } from "react"
+import Header from "../components/Header"
 
 export default function NewPost() {
+    const initialFormState = {category: "Select A Category", title: "", content: "" }
+    const [formState, setFormState] = useState(initialFormState)
   return (
-    <div className="w-96 m-4 outline outline-1">
+      <>
+      <Header />
+    <div className="w-96 bg-gray-100 m-4 outline-1 justify-content-center">
         <div>Create a post</div>
-        <form className="bg-blue-100 h-64">
+        <form className=" h-64">
             <div>
                 <select className="rounded outline outline-1 p-1 m-2">
-                    <option>Select A Community</option>
+                    <option>Choose A Community</option>
                     <option>Rocks </option>
                 </select>
             </div>
-
-            <div className="w-80 m-3 rounded outline outline-1 place-content">
-                <input className="Title w-80 outline rounded outline-1" placeholder=" Title"/>
+            <div className="Container w-80 m-4 rounded p-1 outline-1 m-2 place-content">
+                <input className="Title w-80 m-1 outline rounded outline-1" placeholder=" Title"/>
                 {/* <div>B i link</div> */}
-                <div className="Content w-80 outline outline-1 bg-blue-500 content-editable " contenteditable="true"/>
+                <div className="Content w-80 m-1  outline outline-1 bg-blue-200" contenteditable="true"></div>
             </div>
         </form>
     </div>
+      </>
   )
 }
