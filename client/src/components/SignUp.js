@@ -22,7 +22,7 @@ export default function SignUp() {
                 password: formState.password,
                 password_confirmation: formState.password_confirmation
             }),
-        }).then(console.log("test"))
+        }).then(handleClickX)
     }
 
     const handleInput = (e) => {

@@ -6,12 +6,22 @@ import Home from "./pages/Home";
   import SignUp from "./components/SignUp";
 
 import NewPost from "./pages/NewPost";
+import { useEffect } from "react";
 
 // import Header from "./components/Header";
 
 
 
 export default function App() {
+
+  useEffect( ()-> {
+    fetch('/auth')
+    .then(res => {
+      if(res.ok){
+        res.json().then(user => setCurrentUser(user))
+      }
+    })
+  })
 
 
   return (
