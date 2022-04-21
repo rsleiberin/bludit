@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-
+    skip_before_action :authorized, only: :create
     #Session authentication on page load
     def show
         puts "showing"
