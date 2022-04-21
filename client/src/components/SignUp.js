@@ -10,8 +10,9 @@ export default function SignUp() {
         navigate("/")
     }
 
-    const postNewUser = (formState) => {
-        fetch( 'http://localhost:3000/users',{
+    const postNewUser = () => {
+        console.log(formState)
+        fetch( '/users',{
             method: 'POST',
             headers: {
                 "Content-Type": "application/json",
@@ -29,7 +30,8 @@ export default function SignUp() {
         setFormState(formState => ({...formState, [name]: value}))
     }
 
-    function submitHandler() {
+    function submitHandler(e) {
+        e.preventDefault()
         postNewUser()
         setFormState(initialFormState)
     }

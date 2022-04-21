@@ -9,9 +9,11 @@ class UsersController < ApplicationController
 
     #Creating a user, password is digested due to "has_secure_password" class trait
     def create
+
         puts "creating"
         user = User.create!(user_params)
-        render json: user
+        session[:user_id] = user.id
+        render json: user, status: :created
     end
 
     private
