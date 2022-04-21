@@ -13,6 +13,7 @@ import { useEffect } from "react";
 
 
 export default function App() {
+  const [currentUser,setCurrentUser] = useState('');
 
   useEffect( ()-> {
     fetch('/auth')
@@ -28,9 +29,9 @@ export default function App() {
 
     <Router>
         <Routes>
-            <Route path='/' element={<Home />}>
-              <Route path="signup" element={<SignUp />} />
-              <Route path="login" element={<LogIn />} />
+            <Route path='/' element={<Home />} >
+                <Route path="signup" element={<SignUp />} />
+                <Route path="login" element={<LogIn />} />
             </Route>
             <Route path='submit' element={<NewPost />}/>
         </Routes>

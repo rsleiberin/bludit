@@ -17,10 +17,18 @@ function Header() {
       <div className='flex p-2 w-full bg-blue-600 justify-between'>
         <button className='border border-4 w-8 text-white text-xl' onClick={clickRHandler}> R </button>
         <SearchBar />
-        <>
-            <LogInButton />
-            <SignInButton />
-        </>
+        { if (currentUser) return {
+              (
+              <>
+              <LogInButton />
+              <SignInButton />
+              </>)
+        } else {
+          return (
+
+          )
+        }
+        }
       </div>
   )
 }
