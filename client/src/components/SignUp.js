@@ -1,4 +1,4 @@
-import {useState} from "react"
+import { useState } from "react"
 import { useNavigate } from "react-router-dom"
 
 export default function SignUp() {
@@ -21,23 +21,24 @@ export default function SignUp() {
                 password: formState.password,
                 password_confirmation: formState.password_confirmation
             }),
-        })
-    };
+        }).then(console.log("test"))
+    }
 
     const handleInput = (e) => {
         const { name, value } = e.target;
         setFormState(formState => ({...formState, [name]: value}))
     }
 
-    function onSubmit() {
+    function submitHandler() {
         postNewUser()
+        setFormState(initialFormState)
     }
 
     return (
     <div className="w-1/5 min-w-min m-3 flex rounded outline outline-1 absolute left-1/2 -translate-x-1/2 bg-white drop-shadow-xl">
         <div className="w-32 bg-blue-700"></div>
-        <div className="w-96 p-4">
-        <button onClick={handleClickX} className="float-right">X</button>
+        <form className="w-96 p-4" onSubmit={submitHandler}>
+            <button onClick={handleClickX} className="float-right">X</button>
             <div className="p-3 bg-white w-64 rounded">
                 <p className="text-xl text-blue-700 ">Sign up</p>
                 <p>
@@ -70,9 +71,9 @@ export default function SignUp() {
                     value={formState.input}
                     onChange={handleInput}
                 />
-                <button className="rounded-xl mt-4 m-1 bg-blue-700 text-white p-1 text-lg w-48">Continue</button>
+                <button className="rounded-xl mt-4 m-1 bg-blue-700 text-white p-1 text-lg w-48" type="submit">Continue</button>
             </div>
-        </div>
+        </form>
     </div>
     )
 }

@@ -28,3 +28,6 @@ sudo apt install libpq-dev
 Run react:
 npm install --prefix client
 npm start --prefix-client
+
+rails db:create
+rails db:migrate db:seed
