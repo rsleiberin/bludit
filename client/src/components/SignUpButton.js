@@ -7,7 +7,7 @@ export default function SignInButton() {
   }
 
   return (
-      <div className='flex float-right'>
+      <div className='flex float-right mr-16 outline outline-2 outline-white text-white rounded p-1 '>
     <button onClick={navigateSignup}> Sign Up </button>
       </div>
   )

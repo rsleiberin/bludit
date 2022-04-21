@@ -5,7 +5,7 @@ const SearchBar = ({ searchQuery, setSearchQuery }) => {
     };
 
     return (
-        <form className="Search-bar flex p-1 rounded"
+        <form className="Search-bar w-96 flex p-1 rounded"
             action="/"
             method="get"
             autoComplete="off"
@@ -14,7 +14,7 @@ const SearchBar = ({ searchQuery, setSearchQuery }) => {
             <label htmlFor="header-search">
             </label>
             <input 
-                className="rounded"
+                className="rounded w-96"
                 value={searchQuery}
                 onInput={(e) => setSearchQuery(e.target.value)}
                 type="text"
