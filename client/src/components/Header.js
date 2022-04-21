@@ -5,7 +5,7 @@ import LogInButton from './LogInButton';
 import SignUpButton from './SignUpButton';
 import LogOutButton from './LogOutButton';
 
-function Header({currentUser}) {
+function Header({currentUser, setUser}) {
 
   console.log(currentUser)
   const navigate = useNavigate();
@@ -26,7 +26,7 @@ function Header({currentUser}) {
       <div className='flex p-2 w-full bg-blue-600 justify-between'>
         <button className='border border-4 w-8 text-white text-xl' onClick={clickRHandler}> R </button>
         <SearchBar />
-        <> <LogOutButton /> </>
+        <> <CreatePost /> <LogOutButton setUser={setUser}/> </>
       </div>
     )
   }

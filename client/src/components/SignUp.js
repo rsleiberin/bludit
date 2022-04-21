@@ -1,7 +1,7 @@
 import { useState } from "react"
 import { useNavigate } from "react-router-dom"
 
-export default function SignUp() {
+export default function SignUp({setUser}) {
     const initialFormState = { username: "", password: "", password_confirmation: ""}
     const [formState, setFormState] = useState(initialFormState)
 
@@ -22,7 +22,7 @@ export default function SignUp() {
                 password: formState.password,
                 password_confirmation: formState.password_confirmation
             }),
-        }).then(handleClickX)
+        }).then((r) => r.json()).then(setUser)
     }
 
     const handleInput = (e) => {
@@ -34,6 +34,7 @@ export default function SignUp() {
         e.preventDefault()
         postNewUser()
         setFormState(initialFormState)
+        handleClickX()
     }
 
     return (

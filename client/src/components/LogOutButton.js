@@ -1,12 +1,17 @@
 import { useNavigate } from "react-router-dom"
 
-export default function LogOutButton() {
+export default function LogOutButton({setUser}) {
     const navigate = useNavigate()
 
-    const logOutHandler = () => {
+    const deleteSession = () => {
         fetch( `/sessions` ,{
             method: 'DELETE'
-        })
+        }).then(setUser(""))
+    }
+
+    const logOutHandler =() => {
+        deleteSession()
+        navigate('/')
     }
 
     return (
