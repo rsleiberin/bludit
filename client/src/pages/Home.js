@@ -6,14 +6,14 @@ import PostFilters from '../components/PostFilters'
 import CommunitiesForYou from '../components/CommunitiesForYou'
 import PostPreview from '../components/PostPreview'
 
-function Home() {
+function Home({currentUser}) {
   const postsContext = createContext([]);
   const userContext = createContext('');
   // const  = createContext('Default Value');
 
   return (
       <div className='test' >
-        <Header />
+        <Header currentUser={currentUser}/>
         <Outlet />
         <div className=''>
         <PostFilters />

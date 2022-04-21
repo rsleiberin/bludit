@@ -1,5 +1,6 @@
 // import { useState } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
+import { useContext, createContext, useState } from "react";
 
 import Home from "./pages/Home";
   import LogIn from "./components/LogIn";
@@ -8,14 +9,11 @@ import Home from "./pages/Home";
 import NewPost from "./pages/NewPost";
 import { useEffect } from "react";
 
-// import Header from "./components/Header";
-
-
 
 export default function App() {
   const [currentUser,setCurrentUser] = useState('');
 
-  useEffect( ()-> {
+  useEffect( ()=> {
     fetch('/auth')
     .then(res => {
       if(res.ok){
@@ -24,18 +22,16 @@ export default function App() {
     })
   })
 
-
   return (
-
-    <Router>
-        <Routes>
-            <Route path='/' element={<Home />} >
-                <Route path="signup" element={<SignUp />} />
-                <Route path="login" element={<LogIn />} />
-            </Route>
-            <Route path='submit' element={<NewPost />}/>
-        </Routes>
-    </Router>
+      <Router>
+          <Routes>
+              <Route path='/' element={<Home currentUser={currentUser}/>} >
+                  <Route path="signup" element={<SignUp />} />
+                  <Route path="login" element={<LogIn />} />
+              </Route>
+              <Route path='submit' element={<NewPost />}/>
+          </Routes>
+      </Router>
   )
 }
 
