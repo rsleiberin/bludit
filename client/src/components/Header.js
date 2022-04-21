@@ -2,7 +2,8 @@ import { Navigate, useNavigate } from 'react-router-dom';
 
 import SearchBar from './SearchBar';
 import LogInButton from './LogInButton';
-import SignInButton from './SignUpButton';
+import SignUpButton from './SignUpButton';
+import LogOutButton from './LogOutButton';
 
 function Header({currentUser}) {
 
@@ -11,16 +12,24 @@ function Header({currentUser}) {
   const clickRHandler = () => {
     navigate("/")
   }
-  return (
+  const isLoggedIn = currentUser
+  if (!isLoggedIn) {
+    return (
       <div className='flex p-2 w-full bg-blue-600 justify-between'>
         <button className='border border-4 w-8 text-white text-xl' onClick={clickRHandler}> R </button>
         <SearchBar />
-              <>
-              <LogInButton />
-              <SignInButton />
-              </>
+        <> <SignUpButton /> <LogInButton /> </>
       </div>
   )
+  } else {
+    return (
+      <div className='flex p-2 w-full bg-blue-600 justify-between'>
+        <button className='border border-4 w-8 text-white text-xl' onClick={clickRHandler}> R </button>
+        <SearchBar />
+        <> <LogOutButton /> </>
+      </div>
+    )
+  }
 }
 
 export default Header

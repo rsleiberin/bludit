@@ -13,6 +13,10 @@ import { useEffect } from "react";
 export default function App() {
   const [currentUser,setCurrentUser] = useState('');
 
+  const setUser = (userId) => {
+    setCurrentUser(userId)
+  }
+
   useEffect( ()=> {
     fetch('/auth')
     .then(res => {
@@ -20,14 +24,14 @@ export default function App() {
         res.json().then(user => setCurrentUser(user))
       }
     })
-  })
+  },[])
 
   return (
       <Router>
           <Routes>
               <Route path='/' element={<Home currentUser={currentUser}/>} >
-                  <Route path="signup" element={<SignUp />} />
-                  <Route path="login" element={<LogIn />} />
+                  <Route path="signup" element={<SignUp setUser={setUser}/>} />
+                  <Route path="login" element={<LogIn setUser={setUser}/>} />
               </Route>
               <Route path='submit' element={<NewPost />}/>
           </Routes>

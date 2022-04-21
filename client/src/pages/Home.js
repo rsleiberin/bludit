@@ -7,8 +7,6 @@ import CommunitiesForYou from '../components/CommunitiesForYou'
 import PostPreview from '../components/PostPreview'
 
 function Home({currentUser}) {
-  const postsContext = createContext([]);
-  const userContext = createContext('');
   // const  = createContext('Default Value');
 
   return (

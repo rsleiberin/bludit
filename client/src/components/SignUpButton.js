@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom"
 
-export default function SignInButton() {
+export default function SignUpButton() {
   const navigate = useNavigate()
   function navigateSignup() {
     navigate('/signup')
