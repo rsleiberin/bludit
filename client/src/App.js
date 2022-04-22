@@ -6,16 +6,23 @@ import Home from "./pages/Home";
   import LogIn from "./components/LogIn";
   import SignUp from "./components/SignUp";
 
+import EditPost from "./pages/EditPost";
 import NewPost from "./pages/NewPost";
+import Post from "./pages/Post";
 import { useEffect } from "react";
 
 
 export default function App() {
   const [currentUser,setCurrentUser] = useState('');
+  const [postObject, setPostObject] = useState({})
 
   const setUser = (userId) => {
     setCurrentUser(userId)
   }
+
+  // const setPost = (data) => {
+  //   setPostObject(data)
+  // }
 
   useEffect( ()=> {
     fetch('/auth')
@@ -33,7 +40,10 @@ export default function App() {
                   <Route path="signup" element={<SignUp setUser={setUser}/>} />
                   <Route path="login" element={<LogIn setUser={setUser}/>} />
               </Route>
-              <Route path='submit' element={<NewPost />}/>
+              
+              <Route path='submit' element={<NewPost currentUser={currentUser} setUser={setUser} setPostObject={setPostObject}/>}/>
+              <Route path="posts" element={<Post currentUser={currentUser} setUser={setUser} postObject={postObject}/>} />
+              <Route path='edit' element={<EditPost setPostObject={setPostObject} currentUser={currentUser} postObject={postObject}/>}/>
           </Routes>
       </Router>
   )

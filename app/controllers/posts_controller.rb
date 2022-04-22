@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
     def create
-        post = post.create!(post_params)
+        post = Post.create!(post_params)
         render json: post, status: :created
     end
     def index
@@ -11,17 +11,23 @@ class PostsController < ApplicationController
         post.destroy
         head :no_content
     end
+
     def update
+        pp "test"
+        post = finder
+        post.update(post_params)
+        # render
     end
+
     def show
         post = finder
         render json: post, status: :ok, serializer: PostWithCommentsSerializer
     end
     private
     def post_params
-        params.permit(:user_id, :title, :content)
+        params.permit(:user_id, :title, :content, :category_id)
     end
     def finder
-        post = post.find(params[:id])
+        post = Post.find(params[:id])
     end
 end

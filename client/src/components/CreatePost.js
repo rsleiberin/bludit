@@ -6,7 +6,7 @@ export default function CreatePost() {
         navigate('/submit')
     }
   return (
-    <button >Create Post</button>
+    <button className="outline outline-2 outline-blue text-blue-600 font-semibold rounded bg-white" onClick={onClick}>Create Post</button>
   )
 }
 
