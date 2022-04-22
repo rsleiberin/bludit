@@ -20,10 +20,6 @@ export default function App() {
     setCurrentUser(userId)
   }
 
-  // const setPost = (data) => {
-  //   setPostObject(data)
-  // }
-
   useEffect( ()=> {
     fetch('/auth')
     .then(res => {

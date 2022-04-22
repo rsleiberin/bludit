@@ -1,4 +1,5 @@
 import { Navigate, useNavigate } from "react-router-dom"
+import Header from "../components/Header";
 
 
 export default function Post({currentUser, setUser, postObject}) {
@@ -38,6 +39,8 @@ export default function Post({currentUser, setUser, postObject}) {
 
     if(postObject){
     return (
+      <>
+      <Header currentUser={currentUser} setUser={setUser}/>
         <div className="Post flex bg-gray-100 w-96 m-4 rounded max-h-96 outline outline-1" >
           <div className="Sidebar p-1 bg-gray-200 float-left w-6">
             <button className="flex">^</button>
@@ -52,6 +55,7 @@ export default function Post({currentUser, setUser, postObject}) {
             <button className="outline p-1" onClick={callEditPage}>Edit</button>
           </div>
         </div>
+      </>
       )
     }
 }
