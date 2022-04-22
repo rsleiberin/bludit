@@ -40,6 +40,7 @@ export default function EditPost({setPostObject, currentUser, postObject}) {
     if(postObject){
   return (
       <>
+      <Header currentUser={currentUser} />
     <div className="w-96 h-96 bg-gray-100 m-4 outline-1 justify-content-center">
         <form className=" h-64">
             <div className="TITLE/CONTENT CONTAINER w-80 m-4 rounded p-1 outline-1 m-2 place-content">
