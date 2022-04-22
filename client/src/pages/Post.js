@@ -9,7 +9,6 @@ export default function Post({currentUser, setUser, postObject}) {
         })
     }
 
-    const 
 
 
     const callEditPage = () => {
@@ -24,9 +23,18 @@ export default function Post({currentUser, setUser, postObject}) {
     }
 
     const favoriteHandler = () => {
-        console.log('clicked')
-
-    }
+      console.log(currentUser.id, postObject.id)
+      fetch('/subscriptions', {
+        method: 'POST',
+        headers: {
+          "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+          user_id: parseInt(currentUser.id),
+          post_id: parseInt(postObject.id)
+      })})
+      .then(r => r.json())
+      .then(console.log)}
 
     if(postObject){
     return (

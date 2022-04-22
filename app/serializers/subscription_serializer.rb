@@ -1,5 +1,5 @@
 class SubscriptionSerializer < ActiveModel::Serializer
   attributes :id
-  has_one :users
-  has_one :posts
+  has_one :user
+  has_one :post
 end

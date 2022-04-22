@@ -10,7 +10,7 @@ class SessionController < ApplicationController
         end
     end
     def destroy
-        session.delete :user_id
+        session[params[:id]].delete
         head :no_content
     end
 end

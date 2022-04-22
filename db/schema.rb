@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_04_21_162612) do
+ActiveRecord::Schema[7.0].define(version: 2022_04_22_155428) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -44,12 +44,12 @@ ActiveRecord::Schema[7.0].define(version: 2022_04_21_162612) do
   end
 
   create_table "subscriptions", force: :cascade do |t|
-    t.bigint "users_id", null: false
-    t.bigint "posts_id", null: false
+    t.bigint "user_id", null: false
+    t.bigint "post_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["posts_id"], name: "index_subscriptions_on_posts_id"
-    t.index ["users_id"], name: "index_subscriptions_on_users_id"
+    t.index ["post_id"], name: "index_subscriptions_on_post_id"
+    t.index ["user_id"], name: "index_subscriptions_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -65,6 +65,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_04_21_162612) do
   add_foreign_key "comments", "users"
   add_foreign_key "posts", "categories"
   add_foreign_key "posts", "users"
-  add_foreign_key "subscriptions", "posts", column: "posts_id"
-  add_foreign_key "subscriptions", "users", column: "users_id"
+  add_foreign_key "subscriptions", "posts"
+  add_foreign_key "subscriptions", "users"
 end
