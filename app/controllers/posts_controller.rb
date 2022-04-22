@@ -16,7 +16,7 @@ class PostsController < ApplicationController
         pp "test"
         post = finder
         post.update(post_params)
-        # render
+        render json: post, status: :ok
     end
 
     def show
