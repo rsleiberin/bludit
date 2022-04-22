@@ -9,9 +9,17 @@ export default function Post({currentUser, setUser, postObject}) {
         })
     }
 
+    
+
     const callEditPage = () => {
         // console.log()
         navigate('/edit')
+    }
+
+    const deleteHandler = () => {
+        console.log('clicked')
+        handleDelete(postObject.id)
+        navigate('/')
     }
 
 
@@ -27,7 +35,7 @@ export default function Post({currentUser, setUser, postObject}) {
           <div className="Main p-1">
             <div className="text-xs" >{postObject.category.title} Posted by: u/{postObject.user.username}</div>
             <div className="text-sm" >{postObject.content}</div>
-            <button className="outline p-1">Delete</button>
+            <button className="outline p-1" onClick={deleteHandler}>Delete</button>
             <button className="outline p-1" onClick={callEditPage}>Edit</button>
           </div>
         </div>
