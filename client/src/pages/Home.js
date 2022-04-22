@@ -24,9 +24,14 @@ function Home({ currentUser, setUser }) {
         <div className=''>
         <PostFilters />
         <CommunitiesForYou />
-        <>{posts.map((post) => {return(
+        <>
+        {console.log(posts)}
+        {posts.map((post) => {
+          return(
           <PostPreview post={post}/>
-        )})}</>
+        )}
+        )}
+        </>
         </div>
       </div>
   )
