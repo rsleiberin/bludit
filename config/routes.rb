@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :subscriptions
+  resources :subscriptions, only: [:create]
   resources :comments, except: [:index]
   resources :posts
   resources :categories, except: [:show]

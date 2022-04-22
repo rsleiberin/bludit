@@ -9,7 +9,8 @@ export default function Post({currentUser, setUser, postObject}) {
         })
     }
 
-    
+    const 
+
 
     const callEditPage = () => {
         // console.log()
@@ -22,13 +23,17 @@ export default function Post({currentUser, setUser, postObject}) {
         navigate('/')
     }
 
+    const favoriteHandler = () => {
+        console.log('clicked')
+
+    }
 
     if(postObject){
     return (
         <div className="Post flex bg-gray-100 w-96 m-4 rounded max-h-96 outline outline-1" >
           <div className="Sidebar p-1 bg-gray-200 float-left w-6">
             <button className="flex">^</button>
-            <div className="community">{postObject.title} <button className="p-1 outline"></button></div>
+            <div className="community">{postObject.title} <button className="p-1 outline" onClick={favoriteHandler}>F</button></div>
             <button className="flex">V</button>
           </div>
 
